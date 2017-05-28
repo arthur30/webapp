@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/tourists', 'TouristsController@index'); // calls the controller specifying the method from it
+                                                     // index is used to show all of a resource
+
+Route::get('/guides', 'GuidesController@index');
+Route::get('/guides/{id}', 'GuidesController@show');
