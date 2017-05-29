@@ -14,14 +14,16 @@ class CreateGuidesTable extends Migration
     public function up()
     {
         Schema::create('guides', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('guide_id');
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');
             $table->string('email_address')->unique();
+            $table->string('password');
             $table->integer('phone_number');
             $table->integer('stars');
             $table->text('description');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -7,7 +7,9 @@
 </head>
 
 <body>
-    @include('layouts.footer')
+<ul>
+    <h1> Welcome to TGScanner! </h1>
+</ul>
 </body>
 
 </html>

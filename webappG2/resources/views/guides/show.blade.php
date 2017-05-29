@@ -1,3 +1,5 @@
+@extends('layouts.master')
+
 <!DOCTYPE html>
 
 <!-- Blade is Laravel's template engine -->

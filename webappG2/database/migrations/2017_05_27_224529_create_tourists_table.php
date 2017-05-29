@@ -14,14 +14,16 @@ class CreateTouristsTable extends Migration
     public function up()
     {
         Schema::create('tourists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('tourist_id');
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');
             $table->string('email_address')->unique();
+            $table->string('password');
             $table->integer('phone_number');
             $table->integer('stars');
             $table->text('preferences');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
