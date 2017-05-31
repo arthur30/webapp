@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-   return view('auth.login');
+   return view('welcome');
 });
 
 Route::get('/tourists', 'TouristsController@index'); // calls the controller specifying the method from it
                                                      // index is used to show all of a resource
 
 // controller => GuidesController + Eloquent model => Guide + migration => create_guides_table
-Route::get('/guides', 'GuidesController@index');
+Route::get('/guide', 'GuidesController@index');
 Route::get('/guides/{id}', 'GuidesController@show');
 
 Auth::routes();

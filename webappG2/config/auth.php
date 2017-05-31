@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'tourists',
     ],
 
     /*
@@ -35,15 +35,25 @@ return [
     |
     */
 
+    /**
+     * Web guard is tracked using session
+     * Sessions uses cookies and storage
+     * Token uses API token which you have to pass every time you do something
+     */
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'tourists',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'tourists',
+        ],
+
+        'guide' => [
+            'driver' => 'session',
+            'provider' => 'guides',
         ],
     ],
 
@@ -64,12 +74,19 @@ return [
     |
     */
 
+    /**
+     * Providers specify how to talk with the database
+     * Tourists and guides are the users who can log in
+     */
     'providers' => [
-        'users' => [
+        'tourists' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Tourist::class,
         ],
-
+        'guides' => [
+            'driver' => 'eloquent',
+            'model' => App\Guide::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -92,11 +109,16 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'tourists' => [
+            'provider' => 'tourists',
             'table' => 'password_resets',
             'expire' => 60,
         ],
+        'guides' => [
+            'provider' => 'guides',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ]
     ],
 
 ];

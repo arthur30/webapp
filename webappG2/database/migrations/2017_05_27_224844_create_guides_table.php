@@ -18,11 +18,14 @@ class CreateGuidesTable extends Migration
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');
-            $table->string('email_address')->unique();
-            $table->string('password');
+            $table->text('home_town');
+            $table->string('sex');
+            $table->string('email')->unique();
             $table->integer('phone_number');
-            $table->integer('stars');
-            $table->text('description');
+            $table->text('education');
+            $table->string('password');
+            $table->integer('reviews')->default('5');
+            $table->text('description')->default('');
             $table->rememberToken();
             $table->timestamps();
         });

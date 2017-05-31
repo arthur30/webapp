@@ -8,6 +8,7 @@
 
 <body>
     @include('layouts.footer')
+    <h1> Welcome tourist! </h1>
 </body>
 
 </html>

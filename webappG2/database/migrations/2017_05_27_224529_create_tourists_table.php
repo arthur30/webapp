@@ -18,11 +18,11 @@ class CreateTouristsTable extends Migration
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');
-            $table->string('email_address')->unique();
-            $table->string('password');
             $table->integer('phone_number');
-            $table->integer('stars');
-            $table->text('preferences');
+            $table->integer('reviews')->default('5');
+            $table->text('preferences')->default('');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

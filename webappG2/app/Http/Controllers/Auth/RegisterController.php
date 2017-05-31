@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Tourist;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -20,19 +21,17 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUserS;
 
     /**
      * Where to redirect users after registration.
-     *
-     * @var string
      */
     protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
+     * Acts like a filter. It specifies who is able to make through that filter
+     * If you are already logged in, you don't have access to the other methods (i.e. you can't register twice)
      */
     public function __construct()
     {
@@ -43,13 +42,16 @@ class RegisterController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @returnp
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'first_name' => 'required|string|max:20',
+            'family_name' => 'required|string|max:30',
+            'nationality' => 'required|string|max:30',
+            'phone_number' => 'required|string|max:30',
+            'email' => 'required|string|email|max:255|unique:tourists',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -62,8 +64,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        return Tourist::create([
+            'first_name' => $data['first_name'],
+            'family_name' => $data['family_name'],
+            'nationality' => $data['nationality'],
+            'phone_number' => $data['phone_number'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
