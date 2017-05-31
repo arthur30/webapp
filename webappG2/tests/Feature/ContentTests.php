@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class ContentTests extends TestCase
 {
     /**
      * A basic test example.
@@ -20,4 +20,11 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function testTitleHomePageExists()
+    {
+        $this->get('/')->assertSee('Welcome to TGScanner!');
+    }
+
+
 }

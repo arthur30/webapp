@@ -41,6 +41,14 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
+        ],
+        "ci-env-setup": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+            "php artisan key:generate"
+        ],
+        "ci-db-setup": [
+            "touch storage/database.pgsql",
+            "php artisan migrate"
         ]
     },
     "config": {
