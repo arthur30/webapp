@@ -27,7 +27,7 @@ $factory->define(App\Tourist::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'first_name' => $faker->firstName($gender = null|'male'|'female'),
+        'first_name' => $faker->firstName,
         'family_name' => $faker->lastName,
         'nationality' => $faker->country,
         'phone_number' => $faker->phoneNumber,
