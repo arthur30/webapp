@@ -9,17 +9,19 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ContentTests extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
+    // Rollback and reset database every time you run a test to avoid drafts
+    use WithoutMiddleware;
+    use DatabaseMigrations;
+    use DatabaseTransactions;
+
+
     public function testBasicTest()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
+
 
     public function testTitleHomePageExists()
     {

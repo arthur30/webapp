@@ -22,3 +22,17 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Tourist::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'first_name' => $faker->firstName($gender = null|'male'|'female'),
+        'family_name' => $faker->lastName,
+        'nationality' => $faker->country,
+        'phone_number' => $faker->phoneNumber,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
