@@ -27,3 +27,4 @@ Route::get('/guides/{id}', 'GuidesController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'InfoController@about');

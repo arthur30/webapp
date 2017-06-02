@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title> TGScanner </title>
+    <title> GoLocal </title>
 </head>
 
 <body>
