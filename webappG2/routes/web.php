@@ -15,6 +15,8 @@ Route::get('/', function () {
    return view('welcome');
 });
 
+Route::get('/profile', 'TouristsController@profile');
+Route::post('/profile', 'TouristsController@update_user_avatar');
 Route::get('/tourists', 'TouristsController@index'); // calls the controller specifying the method from it
                                                      // index is used to show all of a resource
 

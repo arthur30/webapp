@@ -21,6 +21,7 @@ class CreateTouristsTable extends Migration
             $table->integer('phone_number');
             $table->integer('reviews')->default('5');
             $table->text('preferences')->default('');
+            $table->string('avatar')->default('default.jpg');
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
