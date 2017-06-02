@@ -72,6 +72,7 @@
             @if (Auth::check())
                 <a href="{{ url('/home') }}">Home</a>
             @else
+                <a href="{{ url('/about') }}">About</a>
                 <a href="{{ url('/login') }}">Login</a>
                 <a href="{{ url('/register') }}">Register</a>
             @endif
@@ -84,7 +85,6 @@
         </div>
 
         <div class="links">
-            <a href="{{ url('/about') }}" style="color:#A0522D">About</a>
             <a href="http://travelpicker.com/" style="color:#A0522D">Explore</a>
         </div>
     </div>
