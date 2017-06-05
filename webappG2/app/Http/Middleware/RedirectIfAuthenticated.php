@@ -17,8 +17,19 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        // If you try to access a guest page and you are logged in, redirect to your dashboard
+        switch ($guard)
+        {
+            case 'guide':
+                if (Auth::guard($guard)->check()) {
+                    return redirect()->route('guide.dashboard');
+                }
+                break;
+            default:
+                if (Auth::guard($guard)->check()) {
+                    return redirect('/home');
+                }
+                break;
         }
 
         return $next($request);

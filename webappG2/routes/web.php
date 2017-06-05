@@ -21,8 +21,11 @@ Route::get('/tourists', 'TouristsController@index'); // calls the controller spe
                                                      // index is used to show all of a resource
 
 // controller => GuidesController + Eloquent model => Guide + migration => create_guides_table
-Route::get('/guide', 'GuidesController@index');
-Route::get('/guides/{id}', 'GuidesController@show');
+Route::prefix('guide')->group(function () {
+    Route::get('/login', 'Auth\GuideLoginController@showLoginForm')->name('guide.login');
+    Route::post('/login', 'Auth\GuideLoginController@login')->name('guide.login.submit');
+    Route::get('/', 'GuidesController@index')->name('guide.dashboard');
+});
 
 Auth::routes();
 

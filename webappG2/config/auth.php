@@ -83,9 +83,20 @@ return [
             'driver' => 'eloquent',
             'model' => App\Tourist::class,
         ],
+
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'tourists'
+        ],
+
         'guides' => [
             'driver' => 'eloquent',
             'model' => App\Guide::class,
+        ],
+
+        'guides-api' => [
+            'driver' => 'token',
+            'provider' => 'guides'
         ],
         // 'users' => [
         //     'driver' => 'database',
