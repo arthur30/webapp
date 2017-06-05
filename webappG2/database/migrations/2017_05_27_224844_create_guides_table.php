@@ -15,11 +15,11 @@ class CreateGuidesTable extends Migration
     {
         Schema::create('guides', function (Blueprint $table) {
             $table->increments('guide_id');
-            $table->text('first_name');
-            $table->text('family_name');
+            $table->text('full_name');
+            // $table->text('family_name');
             $table->string('nationality');
             $table->text('home_town');
-            $table->string('sex');
+            $table->string('sex')->default('');
             $table->integer('phone_number');
             $table->text('education');
             $table->string('avatar')->default('default.jpg');

@@ -35,9 +35,14 @@ Route::prefix('tourist')->group(function () {
 Route::prefix('guide')->group(function () {
     Route::get('/profile', 'GuidesController@profile')->name('guide.profile');
     Route::post('/profile', 'GuidesController@update_guide_avatar')->name('guide.avatar.submit');
+    // Authentication routes for guides
     Route::get('/login', 'Auth\GuideLoginController@showLoginForm')->name('guide.login');
     Route::post('/login', 'Auth\GuideLoginController@login')->name('guide.login.submit');
+    Route::get('/register', 'Auth\GuideRegisterController@showRegistrationForm')->name('guide.register');
+    Route::post('/register', 'Auth\GuideRegisterController@register')->name('guide.register.submit');
+    // Guide dashboard
     Route::get('/', 'GuidesController@index')->name('guide.dashboard');
 });
 
+// Authentication routes for tourists
 Auth::routes();

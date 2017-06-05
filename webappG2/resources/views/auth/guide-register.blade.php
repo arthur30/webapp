@@ -7,23 +7,24 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('guide.register.submit') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">First Name</label>
+                            <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Full Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
+                                    <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" required autofocus>
 
-                                    @if ($errors->has('first_name'))
+                                    @if ($errors->has('full_name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('first_name') }}</strong>
+                                        <strong>{{ $errors->first('full_name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
+                            <!--
                             <div class="form-group{{ $errors->has('family_name') ? ' has-error' : '' }}">
                                 <label for="name" class="col-md-4 control-label">Family Name</label>
 
@@ -37,6 +38,7 @@
                                     @endif
                                 </div>
                             </div>
+                            -->
 
                             <div class="form-group{{ $errors->has('nationality') ? 'has-error' : '' }}">
                                 <label for="nationality" class="col-md-4 control-label"> Nationality </label>
@@ -254,19 +256,19 @@
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}">
-                                <label for="sex" class="col-md-4 control-label">Sex</label>
+                            <!--
+                            <div class="form-group{{ $errors->has('sex') ? 'has-error' : '' }}">
+                                <label for="nationality" class="col-md-4 control-label"> Sex </label>
 
                                 <div class="col-md-6">
-                                    <input id="sex" type="text" class="form-control" name="sex" value="{{ old('sex') }}" required>
-
-                                    @if ($errors->has('sex'))
-                                        <span class="help-block">
-                                        <strong>{{ $errors->first('sex') }}</strong>
-                                    </span>
-                                    @endif
+                                    <select name="sex">
+                                        <option value="">-- Select one --</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
                                 </div>
                             </div>
+                            -->
 
                             <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
                                 <label for="phone_number" class="col-md-4 control-label">Phone Number</label>

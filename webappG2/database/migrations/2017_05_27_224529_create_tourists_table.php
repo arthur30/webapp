@@ -18,6 +18,7 @@ class CreateTouristsTable extends Migration
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');
+            $table->string('sex')->default('');
             $table->integer('phone_number');
             $table->integer('reviews')->default('5');
             $table->text('preferences')->default('');

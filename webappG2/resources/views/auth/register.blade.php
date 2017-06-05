@@ -240,6 +240,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('sex') ? 'has-error' : '' }}">
+                            <label for="nationality" class="col-md-4 control-label"> Sex </label>
+
+                            <div class="col-md-6">
+                                <select name="sex">
+                                    <option value="">-- Select one --</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('phone_number') ? ' has-error' : '' }}">
                             <label for="phone_number" class="col-md-4 control-label">Phone Number</label>
 
