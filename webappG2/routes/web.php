@@ -10,24 +10,34 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**
+ * Routes for a GUEST
+ */
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/about', 'InfoController@about');
 Route::get('/', function () {
    return view('welcome');
 });
 
-Route::get('/profile', 'TouristsController@profile');
-Route::post('/profile', 'TouristsController@update_user_avatar');
-Route::get('/tourists', 'TouristsController@index'); // calls the controller specifying the method from it
-                                                     // index is used to show all of a resource
 
-// controller => GuidesController + Eloquent model => Guide + migration => create_guides_table
+/**
+ * Routes for a TOURIST
+ */
+Route::prefix('tourist')->group(function () {
+    Route::get('/profile', 'TouristsController@profile')->name('tourist.profile');
+    Route::post('/profile', 'TouristsController@update_tourist_avatar')->name('tourist.avatar.submit');
+});
+
+
+/**
+ * Routes for a GUIDE
+ */
 Route::prefix('guide')->group(function () {
+    Route::get('/profile', 'GuidesController@profile')->name('guide.profile');
+    Route::post('/profile', 'GuidesController@update_guide_avatar')->name('guide.avatar.submit');
     Route::get('/login', 'Auth\GuideLoginController@showLoginForm')->name('guide.login');
     Route::post('/login', 'Auth\GuideLoginController@login')->name('guide.login.submit');
     Route::get('/', 'GuidesController@index')->name('guide.dashboard');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/about', 'InfoController@about');

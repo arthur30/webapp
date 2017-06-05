@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Tourist;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Image;
+use Intervention\Image;
 
 class TouristsController extends Controller
 {
@@ -32,7 +32,7 @@ class TouristsController extends Controller
         return view('tourists.profile', array('tourist' => Auth::user()));
     }
 
-    public function update_user_avatar(Request $request)
+    public function update_tourist_avatar(Request $request)
     {
         if($request->hasFile('avatar'))
         {
