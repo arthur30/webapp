@@ -38,7 +38,7 @@ class TouristsController extends Controller
         {
             $avatar = $request->file('avatar');
             $file_name = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(250, 250)->save(public_path('uploads/avatars/' . $file_name));
+            Image::make($avatar)->resize(250, 250)->save(public_path('/uploads/avatars/' . $file_name));
 
             $user = Auth::user();
             $user->avatar = $file_name;

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Guide;
-use Intervention\Image;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class GuidesController extends Controller
 {
@@ -39,7 +40,7 @@ class GuidesController extends Controller
         // return view('guides.profile', array('guide' => Auth::user()));
         $guide = Auth::user();
 
-        return view('guides.show', compact('guide'));
+        return view('guides.profile', compact('guide'));
     }
 
     public function update_guide_avatar(Request $request)
@@ -48,12 +49,12 @@ class GuidesController extends Controller
         {
             $avatar = $request->file('avatar');
             $file_name = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(250, 250)->save(public_path('uploads/avatars/' . $file_name));
+            Image::make($avatar)->resize(250, 250)->save(public_path('/uploads/avatars/' . $file_name));
 
-            $user = Auth::user();
-            $user->avatar = $file_name;
-            $user->save();
+            $guide = Auth::user();
+            $guide->avatar = $file_name;
+            $guide->save();
         }
-        return view('tourists.profile', array('tourist' => Auth::user()));
+        return view('guides.profile', array('guide' => Auth::user()));
     }
 }
