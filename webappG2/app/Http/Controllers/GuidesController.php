@@ -36,7 +36,10 @@ class GuidesController extends Controller
 
     public function profile()
     {
-        return view('guides.profile', array('guide' => Auth::user()));
+        // return view('guides.profile', array('guide' => Auth::user()));
+        $guide = Auth::user();
+
+        return view('guides.show', compact('guide'));
     }
 
     public function update_guide_avatar(Request $request)

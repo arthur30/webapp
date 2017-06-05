@@ -12,7 +12,7 @@
 
 <body>
 <ul>
-    <h1> Hello {{ $guide->first_name }} </h1>
+    <h1> Hello {{ $guide->full_name }} </h1>
 </ul>
 </body>
 

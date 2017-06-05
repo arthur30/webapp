@@ -10,26 +10,25 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('guide.register.submit') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Full Name</label>
+                            <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                                <label for="first_name" class="col-md-4 control-label">First Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" required autofocus>
+                                    <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
 
-                                    @if ($errors->has('full_name'))
+                                    @if ($errors->has('first_name'))
                                         <span class="help-block">
-                                        <strong>{{ $errors->first('full_name') }}</strong>
+                                        <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <!--
                             <div class="form-group{{ $errors->has('family_name') ? ' has-error' : '' }}">
-                                <label for="name" class="col-md-4 control-label">Family Name</label>
+                                <label for="family_name" class="col-md-4 control-label">Family Name</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control" name="name" value="{{ old('family_name') }}" required autofocus>
+                                    <input id="family_name" type="text" class="form-control" name="family_name" value="{{ old('family_name') }}" required autofocus>
 
                                     @if ($errors->has('family_name'))
                                         <span class="help-block">
@@ -38,7 +37,6 @@
                                     @endif
                                 </div>
                             </div>
-                            -->
 
                             <div class="form-group{{ $errors->has('nationality') ? 'has-error' : '' }}">
                                 <label for="nationality" class="col-md-4 control-label"> Nationality </label>

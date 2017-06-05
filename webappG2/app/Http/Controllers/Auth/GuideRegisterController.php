@@ -29,8 +29,8 @@ class GuideRegisterController extends Controller
     {
         // Validate the registration form data
         $this->validate($request, [
-            'full_name' => 'required|string|max:30',
-            //'family_name' => 'required|string|max:30',
+            'first_name' => 'required|string|max:30',
+            'family_name' => 'required|string|max:30',
             'nationality' => 'required|string|max:30',
             'home_town' => 'required|string|max:30',
             'phone_number' => 'required|string|max:30',
@@ -41,8 +41,8 @@ class GuideRegisterController extends Controller
 
         // Create a new guide instance after a valid registration
         Guide::create([
-            'full_name' => $request['full_name'],
-            //'family_name' => $request['family_name'],
+            'first_name' => $request['first_name'],
+            'family_name' => $request['family_name'],
             'nationality' => $request['nationality'],
             'home_town' => $request['home_town'],
             'phone_number' => $request['phone_number'],
