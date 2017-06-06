@@ -75,20 +75,21 @@ Auth::routes();
  */
 Route::get('/chat', function () {
     return view('chat');
-})->middleware('auth');
+})->middleware('auth:guide');
 
 Route::get('/messages', function () {
-    return App\Message::with('user')->get();
-})->middleware('auth');
+    // return App\Message::all();
+    return App\Message::with('guide')->get();
+})->middleware('auth:guide');
 
 Route::post('/messages', function () {
     // Store the new message
-    $user = Auth::user();
-    $message = $user->messages()->create([
+    $guide = Auth::user();
+    $message = $guide->messages()->create([
         'message' => request()->get('message')
     ]);
     // Announce that a new message has been posted
-    broadcast(new MessagePosted($message, $user))->toOthers();
+    broadcast(new MessagePosted($message, $guide))->toOthers();
     return ['status' => 'OK'];
-})->middleware('auth');
+})->middleware('auth:guide');
 // -------------------------------------------------------------------------

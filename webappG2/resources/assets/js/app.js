@@ -40,19 +40,19 @@ const app = new Vue({
         });
 
         Echo.join('chatroom')
-            .here((users) => {
-                this.usersInRoom = users;
+            .here((guides) => {
+                this.usersInRoom = guides;
             })
-            .joining((user) => {
-                this.usersInRoom.push(user);
+            .joining((guide) => {
+                this.usersInRoom.push(guide);
             })
-            .leaving((user) => {
-                this.usersInRoom = this.usersInRoom.filter(u => u != user)
+            .leaving((guide) => {
+                this.usersInRoom = this.usersInRoom.filter(g => g != guide)
             })
             .listen('MessagePosted', (e) => {
                 this.messages.push({
                     message: e.message.message,
-                    user: e.user
+                    guide: e.guide
                 });
             });
     }

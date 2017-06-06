@@ -3,7 +3,7 @@
     <p>
         {{ message.message }}
     </p>
-    <small>{{ message.user.name }}</small>
+    <small>{{ message.guide.name }}</small>
   </div>
 </template>
 
