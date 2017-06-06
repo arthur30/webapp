@@ -28,15 +28,36 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <?php $user = (Auth::guard('guide')) ? 'guide' : 'tourist'; ?>
+                    <a class="navbar-brand" href="{{ route($user . '.dashboard') }}">
                         GoLocal
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <?php $user = (Auth::guard('guide')) ? 'guide' : 'tourist'; ?>
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if(!Auth::guest())
+                            <li><a href="{{ route($user . '.dashboard') }}"> Dashboard </a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false" style="position: relative;">
+                                    Bookings <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ route($user . '.bookings.upcoming') }}">
+                                            <i class="fa fa-btn fa-user"></i> Upcoming
+                                        </a>
+                                        <a href="{{ route($user . '.bookings.past') }}">
+                                            <i class="fa fa-btn fa-user"></i> Past
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="{{ route($user . '.requests') }}"> Requests </a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,15 +77,12 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        @if(Auth::guard('guide'))
-                                            <a href="{{ route('guide.profile') }}">
-                                                <i class="fa fa-btn fa-user"></i> Profile
-                                            </a>
-                                        @else
-                                            <a href="{{ route('tourist.profile') }}">
-                                                <i class="fa fa-btn fa-user"></i> Profile
-                                            </a>
-                                         @endif
+                                        <a href="{{ route($user . '.account') }}">
+                                            <i class="fa fa-btn fa-user"></i> Account
+                                        </a>
+                                        <a href="{{ route($user . '.profile') }}">
+                                            <i class="fa fa-btn fa-user"></i> Profile
+                                        </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"

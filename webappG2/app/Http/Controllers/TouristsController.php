@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Tourist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use Intervention\Image;
+use Intervention\Image\Facades\Image;
 
 class TouristsController extends Controller
 {
@@ -24,7 +24,7 @@ class TouristsController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('tourists.index');
     }
 
     public function profile()
@@ -40,9 +40,10 @@ class TouristsController extends Controller
             $file_name = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(250, 250)->save(public_path('/uploads/avatars/' . $file_name));
 
-            $user = Auth::user();
-            $user->avatar = $file_name;
-            $user->save();
+            $tourist = Auth::user();
+            $tourist->avatar = $file_name;
+            $tourist->sex = "male";
+            $tourist->save();
         }
         return view('tourists.profile', array('tourist' => Auth::user()));
     }
