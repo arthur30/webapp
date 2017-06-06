@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// -------------------------------------------------------------------------
+
 /**
  * Routes for a GUEST
  */
@@ -18,7 +20,7 @@ Route::get('/about', 'InfoController@about');
 Route::get('/', function () {
    return view('welcome');
 });
-
+// -------------------------------------------------------------------------
 
 /**
  * Routes for a TOURIST
@@ -36,7 +38,7 @@ Route::prefix('tourist')->group(function () {
     // Tourist dashboard
     Route::get('/', 'TouristsController@index')->name('tourist.dashboard');
 });
-
+// -------------------------------------------------------------------------
 
 /**
  * Routes for a GUIDE
@@ -56,11 +58,37 @@ Route::prefix('guide')->group(function () {
     Route::post('/login', 'Auth\GuideLoginController@login')->name('guide.login.submit');
     Route::get('/register', 'Auth\GuideRegisterController@showRegistrationForm')->name('guide.register');
     Route::post('/register', 'Auth\GuideRegisterController@register')->name('guide.register.submit');
-    // Chat route
-    Route::get('/chat', 'GuidesChatController@chat')->name('guide.chat');
     // Guide dashboard
     Route::get('/', 'GuidesController@index')->name('guide.dashboard');
 });
+// -------------------------------------------------------------------------
 
-// Authentication routes for tourists
+/**
+ * Authentication routes for tourists
+ */
 Auth::routes();
+// -------------------------------------------------------------------------
+
+/**
+ * CHAT routes
+ * Note: Only available to guides
+ */
+Route::get('/chat', function () {
+    return view('chat');
+})->middleware('auth');
+
+Route::get('/messages', function () {
+    return App\Message::with('user')->get();
+})->middleware('auth');
+
+Route::post('/messages', function () {
+    // Store the new message
+    $user = Auth::user();
+    $message = $user->messages()->create([
+        'message' => request()->get('message')
+    ]);
+    // Announce that a new message has been posted
+    broadcast(new MessagePosted($message, $user))->toOthers();
+    return ['status' => 'OK'];
+})->middleware('auth');
+// -------------------------------------------------------------------------
