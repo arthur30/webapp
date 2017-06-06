@@ -30,7 +30,7 @@ Route::prefix('tourist')->group(function () {
     Route::get('/bookings/past', 'TouristsController@bookings_past')->name('tourist.bookings.past');
     Route::get('/requests', 'TouristsController@requests')->name('tourist.requests');
     // Routes for profile and account from right side of navbar
-    Route::get('/account', 'TouristsController@account')->name('tourists.account');
+    Route::get('/account', 'TouristsController@account')->name('tourist.account');
     Route::get('/profile', 'TouristsController@profile')->name('tourist.profile');
     Route::post('/profile', 'TouristsController@update_tourist_avatar')->name('tourist.avatar.submit');
     // Tourist dashboard
@@ -56,6 +56,8 @@ Route::prefix('guide')->group(function () {
     Route::post('/login', 'Auth\GuideLoginController@login')->name('guide.login.submit');
     Route::get('/register', 'Auth\GuideRegisterController@showRegistrationForm')->name('guide.register');
     Route::post('/register', 'Auth\GuideRegisterController@register')->name('guide.register.submit');
+    // Chat route
+    Route::get('/chat', 'GuidesChatController@chat')->name('guide.chat');
     // Guide dashboard
     Route::get('/', 'GuidesController@index')->name('guide.dashboard');
 });

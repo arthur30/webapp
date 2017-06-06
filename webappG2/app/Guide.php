@@ -18,14 +18,14 @@ class Guide extends Authenticatable
      * The key that prevents SQLSTATE[42703]: Undefined column: 7 ERROR: column "id" does not exist
      * @var string
      */
-    protected $primaryKey = 'guide_id';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'family_name','nationality', 'home_town', 'phone_number', 'education', 'email', 'password',
+        'name', 'first_name', 'family_name','nationality', 'home_town', 'phone_number', 'education', 'email', 'password',
     ];
 
     /**
@@ -35,4 +35,9 @@ class Guide extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

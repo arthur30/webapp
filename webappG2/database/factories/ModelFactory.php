@@ -27,10 +27,28 @@ $factory->define(App\Tourist::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
+        'name' => $faker->name,
         'first_name' => $faker->firstName,
         'family_name' => $faker->lastName,
         'nationality' => $faker->country,
         'phone_number' => $faker->phoneNumber,
+        'email' => $faker->unique()->safeEmail,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Guide::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->name,
+        'first_name' => $faker->firstName,
+        'family_name' => $faker->lastName,
+        'nationality' => $faker->country,
+        'home_town' => $faker->city,
+        'phone_number' => "123",
+        'education' => $faker->month, // just forced
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),

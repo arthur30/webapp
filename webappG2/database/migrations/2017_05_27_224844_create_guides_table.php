@@ -14,7 +14,8 @@ class CreateGuidesTable extends Migration
     public function up()
     {
         Schema::create('guides', function (Blueprint $table) {
-            $table->increments('guide_id');
+            $table->increments('id');
+            $table->text('name');
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');

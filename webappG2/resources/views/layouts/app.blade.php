@@ -28,17 +28,17 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <?php $user = (Auth::guard('guide')) ? 'guide' : 'tourist'; ?>
+                    <?php $user = (Auth::guard('guide')) ? "guide" : "tourist"; ?>
                     <a class="navbar-brand" href="{{ route($user . '.dashboard') }}">
                         GoLocal
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <?php $user = (Auth::guard('guide')) ? 'guide' : 'tourist'; ?>
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if(!Auth::guest())
+                            <?php $user = (Auth::guard('guide')) ? "guide" : "tourist"; ?>
                             <li><a href="{{ route($user . '.dashboard') }}"> Dashboard </a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -61,6 +61,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <?php $user = (Auth::guard('guide')) ? "guide" : "tourist"; ?>
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())

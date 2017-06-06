@@ -66,6 +66,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return Tourist::create([
+            'name' => $data['first_name'] . $data['family_name'],
             'first_name' => $data['first_name'],
             'family_name' => $data['family_name'],
             'nationality' => $data['nationality'],

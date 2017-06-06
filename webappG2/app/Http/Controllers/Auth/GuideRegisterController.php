@@ -41,6 +41,7 @@ class GuideRegisterController extends Controller
 
         // Create a new guide instance after a valid registration
         Guide::create([
+            'name' => $request['first_name'] . $request['family_name'],
             'first_name' => $request['first_name'],
             'family_name' => $request['family_name'],
             'nationality' => $request['nationality'],

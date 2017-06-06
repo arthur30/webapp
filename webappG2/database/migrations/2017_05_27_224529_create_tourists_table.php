@@ -14,7 +14,8 @@ class CreateTouristsTable extends Migration
     public function up()
     {
         Schema::create('tourists', function (Blueprint $table) {
-            $table->increments('tourist_id');
+            $table->increments('id');
+            $table->text('name');
             $table->text('first_name');
             $table->text('family_name');
             $table->string('nationality');

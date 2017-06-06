@@ -13,14 +13,14 @@ class Tourist extends Authenticatable
      * The key that prevents SQLSTATE[42703]: Undefined column: 7 ERROR: column "id" does not exist
      * @var string
      */
-    protected $primaryKey = 'tourist_id';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'family_name', 'nationality', 'phone_number','email', 'password',
+        'name', 'first_name', 'family_name', 'nationality', 'phone_number','email', 'password',
     ];
 
     /**
