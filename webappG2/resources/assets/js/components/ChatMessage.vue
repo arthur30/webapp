@@ -1,23 +1,22 @@
-<template lang="html">
-  <div class="chat-message">
-    <p>
-        {{ message.message }}
-    </p>
-    <small>{{ message.guide.name }}</small>
-  </div>
+<template>
+    <ul class="chat">
+        <li class="left clearfix" v-for="message in messages">
+            <div class="chat-body clearfix">
+                <div class="header">
+                    <strong class="primary-font">
+                        {{ message.user.name }}
+                    </strong>
+                </div>
+                <p>
+                    {{ message.message }}
+                </p>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
-export default {
-    props: ['message']
-}
+    export default {
+        props: ['messages']
+    };
 </script>
-
-<style lang="css">
-.chat-message {
-    padding: 1rem;
-}
-.chat-message > p {
-    margin-bottom: .5rem;
-}
-</style>

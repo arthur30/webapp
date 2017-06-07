@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Events\MessagePosted;
+
 // -------------------------------------------------------------------------
 
 /**
@@ -73,6 +76,8 @@ Auth::routes();
  * CHAT routes
  * Note: Only available to guides
  */
+
+/**
 Route::get('/chat', function () {
     return view('chat');
 })->middleware('auth:guide');
@@ -90,6 +95,12 @@ Route::post('/messages', function () {
     ]);
     // Announce that a new message has been posted
     broadcast(new MessagePosted($message, $guide))->toOthers();
-    return ['status' => 'OK'];
+
+    return ['status' => 'Success'];
 })->middleware('auth:guide');
+*/
 // -------------------------------------------------------------------------
+
+Route::get('/chat', 'ChatsController@index')->name('guide.chat');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');

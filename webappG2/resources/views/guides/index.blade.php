@@ -8,7 +8,10 @@
                     <div class="panel-heading">GUIDE Dashboard</div>
 
                     <div class="panel-body">
-                        You are logged in as <strong>GUIDE</strong>!
+                        You are logged in as <strong>GUIDE</strong>!<br>
+                        <a href="{{ route('guide.chat') }}">
+                            Enter chat room
+                        </a>
                     </div>
                 </div>
             </div>
