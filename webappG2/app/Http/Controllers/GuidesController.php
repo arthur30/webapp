@@ -45,8 +45,7 @@ class GuidesController extends Controller
 
     public function update_guide_avatar(Request $request)
     {
-        if($request->hasFile('avatar'))
-        {
+        if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $file_name = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(250, 250)->save(public_path('/uploads/avatars/' . $file_name));
@@ -56,5 +55,37 @@ class GuidesController extends Controller
             $guide->save();
         }
         return view('guides.profile', array('guide' => Auth::user()));
+    }
+
+    /**
+     * Display your account details
+     */
+    public function account()
+    {
+        return view('guides.account');
+    }
+
+    /**
+     * Display upcoming bookings for the guide
+     */
+    public function bookings_upcoming()
+    {
+        return view('guides.bookings-upcoming');
+    }
+
+    /**
+     * Display past bookings for the guide
+     */
+    public function bookings_past()
+    {
+        return view('guides.bookings-past');
+    }
+
+    /**
+     * Display the requests sent by a tourist to the guide
+     */
+    public function requests()
+    {
+        return view('guides.requests');
     }
 }
