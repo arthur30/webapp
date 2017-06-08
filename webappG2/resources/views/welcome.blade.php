@@ -70,37 +70,36 @@
                 <div class="w3-quarter">
                     <label for="who">Who</label>
                     <div class="col-md-6">
-                                <select name="Who">
-                                    <option value="Just me">Just me</option>
-                                    <option value="A couple">A couple</option>
-                                    <option value="Group of friends">Group of friends</option>
-                                    <option value="Family">Family</option>
-                                    <option value="Honeymoon">Honeymoon</option>
-                                </select>
+                        <select name="who">
+                            <option value="Just me">Just me</option>
+                            <option value="A couple">A couple</option>
+                            <option value="Group of friends">Group of friends</option>
+                            <option value="Family">Family</option>
+                            <option value="Honeymoon">Honeymoon</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="w3-quarter">
                     <label for="where">Where</label>
                     <div class="col-md-6">
-                                <select name="Where">
-                                    <option value="London">London</option>
-                                    <option value="Birmingham">Birmingham</option>
-                                    <option value="Bristol">Bristol</option>
-                                    <option value="Edinburgh">Edinburgh</option>
-                                    <option value="Glasgow">Glasgow</option>
-                                    <option value="Leeds">Leeds</option>
-                                    <option value="Leicester">Leicester</option>
-                                    <option value="Liverpool">Liverpool</option>
-                                    <option value="Manchester">Manchester</option>
-                                    <option value="Sheffield">Sheffield</option>
-                                </select>
+                        <select name="where">
+                            <option value="London">London</option>
+                            <option value="Birmingham">Birmingham</option>
+                            <option value="Bristol">Bristol</option>
+                            <option value="Edinburgh">Edinburgh</option>
+                            <option value="Glasgow">Glasgow</option>
+                            <option value="Leeds">Leeds</option>
+                            <option value="Leicester">Leicester</option>
+                            <option value="Liverpool">Liverpool</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Sheffield">Sheffield</option>
+                        </select>
                     </div>
                 </div>
 
                 <div class="w3-quarter">
                     <label for="when">When</label>
-                        <title>calendar</title>
                         <form>
                             <input type="date" id="dateDefault"/>
                         </form>
@@ -109,11 +108,11 @@
                 <div class="w3-quarter">
                     <label for="preference">Preference</label>
                     <div class="col-md-6">
-                                <select name="Preference">
-                                    <option value="I don't care">I don't care</option>
-                                    <option value="Female only">Female only</option>
-                                    <option value="Male only">Male only</option>
-                                </select>
+                        <select name="preference">
+                            <option value="I don't care">I don't care</option>
+                            <option value="Female only">Female only</option>
+                            <option value="Male only">Male only</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -135,7 +134,8 @@
             <h3>Find the best hotels</h3>
             <p>Book a hotel with us and get the best fares and promotions.</p>
             <p>
-                <a href="https://www.booking.com/index.de.html?label=gen173nr-1BCAEoggJCAlhYSDNiBW5vcmVmaFCIAQGYAQe4AQfIAQzYAQHoAQGSAgF5qAID;sid=ad0a7a5bcc53baad4262bdbe22a8b754;sb_price_type=total&">
+                <a href="https://www.booking.com/index.de.html?label=gen173nr-1BCAEoggJCAlhYSDNiBW5vcmVmaFCIAQGYAQe4AQ
+                fIAQzYAQHoAQGSAgF5qAID;sid=ad0a7a5bcc53baad4262bdbe22a8b754;sb_price_type=total&">
                     <button class="w3-button w3-dark-grey">Search Hotels</button>
                 </a>
             </p>

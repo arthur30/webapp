@@ -66,6 +66,15 @@ Route::prefix('guide')->group(function () {
 });
 // -------------------------------------------------------------------------
 
+Route::get('/chat', 'ChatsController@index')->name('guide.chat');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
+
+Route::get('/guides/{city}', 'InfoController@get_guides_city')->name('guides.city');
+Route::post('/guides', 'InfoController@location_submit')->name('location.submit');
+
+// -------------------------------------------------------------------------
+
 /**
  * Authentication routes for tourists
  */
@@ -101,6 +110,3 @@ Route::post('/messages', function () {
 */
 // -------------------------------------------------------------------------
 
-Route::get('/chat', 'ChatsController@index')->name('guide.chat');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
