@@ -72,12 +72,12 @@
                 <div class="w3-quarter">
                     <label for="who">Who</label>
                     <div class="col-md-6">
-                                <select name="Who">
-                                    <option value="Alone">Alone</option>
-                                    <option value="Couple">Couple</option>
-                                    <option value="Group">Group</option>
-                                    <option value="Family">Family</option>
-                                </select>
+                        <select name="Who">
+                            <option value="Alone">Alone</option>
+                            <option value="Couple">Couple</option>
+                            <option value="Group">Group</option>
+                            <option value="Family">Family</option>
+                        </select>
                     </div>
                 </div>
 
@@ -110,11 +110,11 @@
                 <div class="w3-quarter">
                     <label for="preference">Guide Preference</label>
                     <div class="col-md-6">
-                                <select name="Preference">
-                                    <option value="Default">No preference</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Male">Male</option>
-                                </select>
+                        <select name="Preference">
+                            <option value="Default">No preference</option>
+                            <option value="Female">Female</option>
+                            <option value="Male">Male</option>
+                        </select>
                     </div>
                 </div>
             </div>
