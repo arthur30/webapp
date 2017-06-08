@@ -22,7 +22,6 @@ class InfoController extends Controller
     {
         $guides = Guide::where('home_town', $city)->get();
         $data = json_decode( $guides );
-        $first_guide = json_encode( $data[0] );
 
         return view('guides.guides-page', compact('guides', 'city'));
     }
@@ -30,6 +29,6 @@ class InfoController extends Controller
     public function location_submit(Request $request)
     {
         $city = $request["where"];
-        return redirect(route('/guides/' . $city));
+        return redirect(route('guides.city', $city));
     }
 }

@@ -64,6 +64,8 @@
         </div>
 
         <!-- Tabs -->
+        <form role="form" method="POST" action="{{ route('location.submit') }}">
+            {{ csrf_field() }}
         <div id="Location" class="w3-container w3-white w3-padding-16 myLink">
             <h3>Visit a city with the help of a local</h3>
             <div class="w3-row-padding" style="margin:0 -16px;">
@@ -94,6 +96,7 @@
                             <option value="Liverpool">Liverpool</option>
                             <option value="Manchester">Manchester</option>
                             <option value="Sheffield">Sheffield</option>
+                            <option value="Targu Mures">Targu Mures</option>
                         </select>
                     </div>
                 </div>
@@ -116,9 +119,9 @@
                     </div>
                 </div>
             </div>
-            <p><button class="w3-button w3-dark-grey" method="POST" action="{{ route('location.submit') }}">Search</button></p>
-
+            <p><button class="w3-button w3-dark-grey">Search</button></p>
         </div>
+        </form>
 
         <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
             <h3>Travel the world with us</h3>
