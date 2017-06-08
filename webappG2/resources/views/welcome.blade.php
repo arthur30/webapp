@@ -70,13 +70,12 @@
                 <div class="w3-quarter">
                     <label for="who">Who</label>
                     <div class="col-md-6">
-                        <select name="who">
-                            <option value="Just me">Just me</option>
-                            <option value="A couple">A couple</option>
-                            <option value="Group of friends">Group of friends</option>
-                            <option value="Family">Family</option>
-                            <option value="Honeymoon">Honeymoon</option>
-                        </select>
+                                <select name="Who">
+                                    <option value="Alone">Alone</option>
+                                    <option value="Couple">Couple</option>
+                                    <option value="Group">Group</option>
+                                    <option value="Family">Family</option>
+                                </select>
                     </div>
                 </div>
 
@@ -106,13 +105,13 @@
                 </div>
 
                 <div class="w3-quarter">
-                    <label for="preference">Preference</label>
+                    <label for="preference">Guide Preference</label>
                     <div class="col-md-6">
-                        <select name="preference">
-                            <option value="I don't care">I don't care</option>
-                            <option value="Female only">Female only</option>
-                            <option value="Male only">Male only</option>
-                        </select>
+                                <select name="Preference">
+                                    <option value="Default">No preference</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
                     </div>
                 </div>
             </div>
@@ -148,4 +147,3 @@
 <script src="{{ asset('js/setInputDate.js') }}"></script>
 </body>
 </html>
-
