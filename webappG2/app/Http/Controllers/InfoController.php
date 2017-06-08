@@ -31,4 +31,9 @@ class InfoController extends Controller
         $city = $request["where"];
         return redirect(route('guides.city', $city));
     }
+
+    public function availability()
+    {
+        return view('availability');
+    }
 }
