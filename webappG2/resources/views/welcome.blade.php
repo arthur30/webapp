@@ -68,23 +68,53 @@
             <h3>Visit a city with the help of a local</h3>
             <div class="w3-row-padding" style="margin:0 -16px;">
                 <div class="w3-quarter">
-                    <label>Who</label>
-                    <input class="w3-input w3-border" type="text">
+                    <label for="who">Who</label>
+                    <div class="col-md-6">
+                                <select name="Who">
+                                    <option value="Just me">Just me</option>
+                                    <option value="A couple">A couple</option>
+                                    <option value="Group of friends">Group of friends</option>
+                                    <option value="Family">Family</option>
+                                    <option value="Honeymoon">Honeymoon</option>
+                                </select>
+                    </div>
                 </div>
 
                 <div class="w3-quarter">
-                    <label>Where</label>
-                    <input class="w3-input w3-border" type="text" placeholder="City to visit">
+                    <label for="where">Where</label>
+                    <div class="col-md-6">
+                                <select name="Where">
+                                    <option value="London">London</option>
+                                    <option value="Birmingham">Birmingham</option>
+                                    <option value="Bristol">Bristol</option>
+                                    <option value="Edinburgh">Edinburgh</option>
+                                    <option value="Glasgow">Glasgow</option>
+                                    <option value="Leeds">Leeds</option>
+                                    <option value="Leicester">Leicester</option>
+                                    <option value="Liverpool">Liverpool</option>
+                                    <option value="Manchester">Manchester</option>
+                                    <option value="Sheffield">Sheffield</option>
+                                </select>
+                    </div>
                 </div>
 
                 <div class="w3-quarter">
-                    <label>When</label>
-                    <input class="w3-input w3-border" type="text">
+                    <label for="when">When</label>
+                        <title>calendar</title>
+                        <form>
+                            <input type="date" id="dateDefault"/>
+                        </form>
                 </div>
 
                 <div class="w3-quarter">
-                    <label>Preference</label>
-                    <input class="w3-input w3-border" type="text">
+                    <label for="preference">Preference</label>
+                    <div class="col-md-6">
+                                <select name="Preference">
+                                    <option value="I don't care">I don't care</option>
+                                    <option value="Female only">Female only</option>
+                                    <option value="Male only">Male only</option>
+                                </select>
+                    </div>
                 </div>
             </div>
             <p><button class="w3-button w3-dark-grey">Search</button></p>
@@ -93,20 +123,28 @@
         <div id="Flight" class="w3-container w3-white w3-padding-16 myLink">
             <h3>Travel the world with us</h3>
             <p> Want a fast booking for you flight? </p>
-            <p><button class="w3-button w3-dark-grey">Search and find dates</button></p>
+            <p>
+                <a href="https://www.skyscanner.net/">
+                    <button class="w3-button w3-dark-grey">Search and find dates</button>
+                </a>
+            </p>
         </div>
 
         <div id="Hotel" class="w3-container w3-white w3-padding-16 myLink">
             <h3>Find the best hotels</h3>
             <p>Book a hotel with us and get the best fares and promotions.</p>
-            <p><button class="w3-button w3-dark-grey">Search Hotels</button></p>
+            <p>
+                <a href="https://www.booking.com/index.de.html?label=gen173nr-1BCAEoggJCAlhYSDNiBW5vcmVmaFCIAQGYAQe4AQfIAQzYAQHoAQGSAgF5qAID;sid=ad0a7a5bcc53baad4262bdbe22a8b754;sb_price_type=total&">
+                    <button class="w3-button w3-dark-grey">Search Hotels</button>
+                </a>
+            </p>
         </div>
     </div>
 </header>
 
 <!-- Scripts -->
 <script src="{{ asset('js/openLink.js') }}"></script>
-
+<script src="{{ asset('js/setInputDate.js') }}"></script>
 </body>
 </html>
 
