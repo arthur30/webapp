@@ -16,7 +16,7 @@ class ChatsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:guide');
+        $this->middleware('auth');
     }
 
     /**
@@ -36,7 +36,7 @@ class ChatsController extends Controller
      */
     public function fetchMessages()
     {
-        return Message::with('user')->get();
+        return Message::with('guide')->get();
     }
 
     /**

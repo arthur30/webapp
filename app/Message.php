@@ -20,6 +20,7 @@ class Message extends Model
      */
     public function user()
     {
-        return $this->belongsTo(Guide::class);
+        /** @noinspection PhpUndefinedClassInspection */
+        return $this->belongsTo(Tourist::class);
     }
 }

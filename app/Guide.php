@@ -43,6 +43,7 @@ class Guide extends Authenticatable
      */
     public function messages()
     {
+        /** @noinspection PhpUndefinedClassInspection */
         return $this->hasMany(Message::class);
     }
 }

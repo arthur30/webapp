@@ -30,4 +30,15 @@ class Tourist extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * A tourist can have many messages
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        /** @noinspection PhpUndefinedClassInspection */
+        return $this->hasMany(Message::class);
+    }
 }
