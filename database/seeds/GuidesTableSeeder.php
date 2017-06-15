@@ -12,6 +12,6 @@ class GuidesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Guide::class, 5)->create();
+        factory(Guide::class, 9)->create();
     }
 }

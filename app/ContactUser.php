@@ -7,15 +7,6 @@ use Illuminate\Http\Request;
 
 class ContactUser extends Model
 {
-    /**
-     * ContactUser constructor for post which specifies that the user must be logged in to message guide
-     * Both tourist and guides can have access at it
-     */
-    public function __construct()
-    {
-        $this->middleware('auth', 'auth:guide');
-    }
-
     // Return the view to contact a user
     public function create()
     {

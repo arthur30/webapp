@@ -51,7 +51,8 @@ $factory->define(App\Guide::class, function (Faker\Generator $faker) {
         'nationality' => $faker->country,
         'home_town' => $faker->city,
         'phone_number' => $faker->phoneNumber,
-        'education' => $faker->month, // just forced
+        'education' => $faker->month,
+        'description' => $faker->sentences($nb = 4, $asText = true),
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
@@ -60,9 +61,9 @@ $factory->define(App\Guide::class, function (Faker\Generator $faker) {
 
 $factory->define(App\ContactUser::class, function (Faker\Generator $faker) {
     return [
-        'tourist_id' => $faker->randomDigit($min = 0, $max = 5),
-        'guide_id' => $faker->randomDigit($min = 0, $max = 5),
-        'description' => $faker->realText($faker->numberBetween(5, 9)),
-        'message' => $faker->realText($faker->numberBetween(20, 30)),
+        'tourist_id' => $faker->randomDigit,
+        'guide_id' => $faker->randomDigit,
+        'description' => $faker->sentence(),
+        'message' => $faker->sentences($nb = 4, $asText = true),
     ];
 }) ;

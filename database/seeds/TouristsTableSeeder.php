@@ -12,6 +12,6 @@ class TouristsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tourist::class, 5)->create();
+        factory(Tourist::class, 9)->create();
     }
 }
