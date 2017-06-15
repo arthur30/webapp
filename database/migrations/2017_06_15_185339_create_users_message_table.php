@@ -13,7 +13,7 @@ class CreateUsersMessageTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact', function (Blueprint $table) {
+        Schema::create('contact_users', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tourist_id')->unsigned();
             $table->integer('guide_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateUsersMessageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_user');
+        Schema::dropIfExists('contact_users');
     }
 }

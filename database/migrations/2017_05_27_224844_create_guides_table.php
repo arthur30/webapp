@@ -22,8 +22,9 @@ class CreateGuidesTable extends Migration
             $table->string('nationality');
             $table->text('home_town');
             $table->string('sex')->default('');
-            $table->integer('phone_number');
+            $table->text('phone_number');
             $table->text('education');
+            $table->text('languages')->default('English');
             $table->string('avatar')->default('default.jpg');
             $table->string('email')->unique();
             $table->string('password');

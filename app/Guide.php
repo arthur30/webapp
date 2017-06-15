@@ -25,7 +25,7 @@ class Guide extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'first_name', 'family_name','nationality', 'home_town', 'phone_number', 'education', 'email', 'password',
+        'name', 'first_name', 'family_name','nationality', 'home_town', 'phone_number', 'education', 'languages', 'email', 'password',
     ];
 
     /**
