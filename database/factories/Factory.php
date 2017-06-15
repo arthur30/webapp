@@ -62,7 +62,7 @@ $factory->define(App\ContactUser::class, function (Faker\Generator $faker) {
     return [
         'tourist_id' => $faker->randomDigit($min = 0, $max = 5),
         'guide_id' => $faker->randomDigit($min = 0, $max = 5),
-        'description' => $faker->realText($faker->numberBetween(5,9)),
-        'message' => $faker->realText($faker->numberBetween(20,30)),
+        'description' => $faker->realText($faker->numberBetween(5, 9)),
+        'message' => $faker->realText($faker->numberBetween(20, 30)),
     ];
 }) ;
