@@ -1,3 +1,4 @@
+<!-- Personal page of a guide after clicking contact button -->
 @extends('layouts.app')
 
 @section('content')
@@ -9,6 +10,7 @@
 
                     <div class="panel-body">
                         Here will be the page of your guide
+                        {{ $guide->name }}
                     </div>
                 </div>
             </div>
