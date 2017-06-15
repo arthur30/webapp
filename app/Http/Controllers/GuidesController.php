@@ -88,4 +88,10 @@ class GuidesController extends Controller
     {
         return view('guides.requests');
     }
+
+    public function message_tourist()
+    {
+        // TODO
+        return view('about');
+    }
 }

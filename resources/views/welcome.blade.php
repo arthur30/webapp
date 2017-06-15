@@ -118,6 +118,18 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="w3-quarter">
+                    <label for="language">Language</label>
+                    <div class="col-md-6">
+                        <select name="language">
+                            <option value="english">English</option>
+                            <option value="french">French</option>
+                            <option value="spanish">Spanish</option>
+                            <option value="german">German</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <p><button class="w3-button w3-dark-grey">Search</button></p>
         </div>

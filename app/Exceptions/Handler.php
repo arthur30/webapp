@@ -75,6 +75,6 @@ class Handler extends ExceptionHandler
         }
 
         // return redirect()->guest(route($login));
-        return redirect()->guest(route('guide.login'));
+        return redirect()->guest(route($login));
     }
 }

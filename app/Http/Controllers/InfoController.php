@@ -18,12 +18,6 @@ class InfoController extends Controller
         return view('about');
     }
 
-    /**
-     * Retrieves all the guide for a specific city
-     * /guides/{city}
-     * @param $city
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function get_guides_city($city)
     {
         $guides = Guide::where('home_town', $city)->get();
@@ -32,11 +26,6 @@ class InfoController extends Controller
         return view('guides.guides-page', compact('guides', 'city'));
     }
 
-    /**
-     * Retrieves the view for a specific guide when you press contact
-     * '/guides/{id}'
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
     public function display_guide_per_id($id)
     {
         $guide = Guide::find($id);

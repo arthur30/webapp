@@ -29,6 +29,7 @@ Route::get('/', function () {
  * Routes for a TOURIST
  */
 Route::prefix('tourist')->group(function () {
+    Route::get('/send-message', 'TouristsController@message_guide')->name('tourist.message');
     // Routes from left side of navbar
     Route::get('/bookings', 'TouristsController@bookings')->name('tourist.bookings');
     Route::get('/bookings/upcoming', 'TouristsController@bookings_upcoming')->name('tourist.bookings.upcoming');
@@ -47,6 +48,7 @@ Route::prefix('tourist')->group(function () {
  * Routes for a GUIDE
  */
 Route::prefix('guide')->group(function () {
+    Route::get('/send-message', 'GuidesController@message_tourist')->name('guide.message');
     // Routes from left side of navbar
     Route::get('/bookings', 'GuidesController@bookings')->name('guide.bookings');
     Route::get('/bookings/upcoming', 'GuidesController@bookings_upcoming')->name('guide.bookings.upcoming');

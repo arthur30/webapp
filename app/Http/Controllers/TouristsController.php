@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tourist;
+use App\Guide;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -46,5 +47,12 @@ class TouristsController extends Controller
             $tourist->save();
         }
         return view('tourists.profile', array('tourist' => Auth::user()));
+    }
+
+    public function message_guide()
+    {
+        $tourist = Auth::user();
+
+        return view('tourists.message-guide', compact('tourist'));
     }
 }
