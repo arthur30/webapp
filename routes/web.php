@@ -74,8 +74,8 @@ Route::post('messages', 'ChatsController@sendMessage');
 Route::get('/availability', 'InfoController@availability')->name('guide.availability');
 
 Route::prefix('guides')->group(function () {
-    Route::get('/{id}', 'InfoController@display_guide_per_id')->name('guide.page.get');
-    Route::get('/{city}', 'InfoController@get_guides_city')->name('guides.city');
+    Route::get('/list/{city}', 'InfoController@get_guides_city')->name('guides.city');
+    Route::get('/profile/{id}', 'InfoController@display_guide_per_id')->name('guide.page.get');
     Route::post('/', 'InfoController@location_submit')->name('location.submit');
 });
 // -------------------------------------------------------------------------

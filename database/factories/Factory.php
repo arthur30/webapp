@@ -26,10 +26,13 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Tourist::class, function (Faker\Generator $faker) {
     static $password;
 
+    $first_name = $faker->firstName;
+    $family_name = $faker->lastName;
+
     return [
-        'name' => $faker->name,
-        'first_name' => $faker->firstName,
-        'family_name' => $faker->lastName,
+        'name' => $first_name . ' ' . $family_name,
+        'first_name' => $first_name,
+        'family_name' => $family_name,
         'nationality' => $faker->country,
         'phone_number' => $faker->phoneNumber,
         'email' => $faker->unique()->safeEmail,

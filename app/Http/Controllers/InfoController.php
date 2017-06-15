@@ -18,6 +18,12 @@ class InfoController extends Controller
         return view('about');
     }
 
+    public function location_submit(Request $request)
+    {
+        $city = $request["where"];
+        return redirect(route('guides.city', $city));
+    }
+
     public function get_guides_city($city)
     {
         $guides = Guide::where('home_town', $city)->get();
@@ -31,17 +37,6 @@ class InfoController extends Controller
         $guide = Guide::find($id);
 
         return view('guides.guide-personal-page', compact('guide'));
-    }
-
-    /**
-     * Submits a request to get the guides for a city
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function location_submit(Request $request)
-    {
-        $city = $request["where"];
-        return redirect(route('guides.city', $city));
     }
 
     public function availability()
