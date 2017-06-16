@@ -20,7 +20,7 @@
                     <h3><b> Top Preferences </b></h3>
                     <p> Hyde Park </p>
                     <p> National History Museum </p>
-                    <a href={{ route('tourist.message') }}>
+                    <a href={{ route('tourist.message', $guide->id) }}>
                         <button class="w3-button w3-margin-bottom w3-grey"> Message {{ $guide->first_name }} </button>
                     </a>
                 </div>

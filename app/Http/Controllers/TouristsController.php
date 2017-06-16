@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tourist;
 use App\Guide;
+use App\ContactUser;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -49,10 +50,45 @@ class TouristsController extends Controller
         return view('tourists.profile', array('tourist' => Auth::user()));
     }
 
-    public function message_guide()
+    public function create_message($id)
     {
+        $guide = Guide::find($id);
+
         $tourist = Auth::user();
 
-        return view('tourists.message-guide', compact('tourist'));
+        return view('tourists.message-guide', compact('tourist', 'guide'));
+    }
+
+    // Return the view to contact a user
+    public function create()
+    {
+        // $user = (Auth::guard('guide')) ? 'guide' : 'tourist';
+        return view( 'tourists.message-guide');
+    }
+
+    // Store the user message details in the database
+    public function store_message(Request $request, $guide_id)
+    {
+        // $user = (Auth::guard('guide')) ? 'guide' : 'tourist';
+        $tourist = Auth::user();
+        $tourist_id = $tourist->id;
+
+        $this->validate(request(), [
+            'tourist_id' => 'required',
+            'guide_id' => 'required',
+            'description' => 'required|string|max:500',
+            'message' => 'required|string|min:1',
+        ]);
+
+        // Create a new message instance for the user after a valid form submission
+        ContactUser::create([
+            'tourist_id' => $tourist_id,
+            'guide_id' => $guide_id,
+            'description' => $request['description'],
+            'message' => $request['message'],
+        ]);
+
+        // Redirect the user to the dashboard after submitting a message
+        return redirect(route( 'tourist.dashboard'));
     }
 }

@@ -29,7 +29,8 @@ Route::get('/', function () {
  * Routes for a TOURIST
  */
 Route::prefix('tourist')->group(function () {
-    Route::get('/send-message', 'TouristsController@message_guide')->name('tourist.message');
+    Route::get('/send-message/{id}', 'TouristsController@create_message')->name('tourist.message');
+    Route::post('/send-message/{id}', 'TouristsController@store_message')->name('tourist.message.submit');
     // Routes from left side of navbar
     Route::get('/bookings', 'TouristsController@bookings')->name('tourist.bookings');
     Route::get('/bookings/upcoming', 'TouristsController@bookings_upcoming')->name('tourist.bookings.upcoming');
