@@ -18,6 +18,6 @@ class ContactUser extends Model
      * @var array
      */
     protected $fillable = [
-        'description', 'message',
+        'tourist_id', 'guide_id','description', 'message',
     ];
 }

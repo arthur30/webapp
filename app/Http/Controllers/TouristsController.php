@@ -74,8 +74,6 @@ class TouristsController extends Controller
         $tourist_id = $tourist->id;
 
         $this->validate(request(), [
-            'tourist_id' => 'required',
-            'guide_id' => 'required',
             'description' => 'required|string|max:500',
             'message' => 'required|string|min:1',
         ]);
