@@ -67,7 +67,7 @@
                                 </ul>
                             </li>
                             <li><a href="{{ route($user . '.requests') }}"> Requests </a></li>
-                            <li><a href="{{ route($user . '.message') }}"> Messages </a></li>
+                            <li><a href="{{ route($user . '.messages.retrieve') }}"> Messages </a></li>
                         @endif
                     </ul>
 

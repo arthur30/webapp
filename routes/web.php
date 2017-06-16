@@ -49,6 +49,7 @@ Route::prefix('tourist')->group(function () {
  * Routes for a GUIDE
  */
 Route::prefix('guide')->group(function () {
+    Route::get('/inbox', 'GuidesController@fetch_messages')->name('guide.messages.retrieve');
     Route::get('/send-message', 'GuidesController@message_tourist')->name('guide.message');
     // Routes from left side of navbar
     Route::get('/bookings', 'GuidesController@bookings')->name('guide.bookings');

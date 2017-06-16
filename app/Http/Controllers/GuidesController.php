@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ContactUser;
+use App\Tourist;
 use Illuminate\Http\Request;
 use App\Guide;
 use Illuminate\Support\Facades\Auth;
@@ -89,9 +91,11 @@ class GuidesController extends Controller
         return view('guides.requests');
     }
 
-    public function message_tourist()
+    public function fetch_messages()
     {
-        // TODO
-        return view('about');
+        $guide = Auth::user();
+        $messages = ContactUser::where('guide_id', $guide->id)->get();
+
+        return view('guides.inbox', compact('messages'));
     }
 }
